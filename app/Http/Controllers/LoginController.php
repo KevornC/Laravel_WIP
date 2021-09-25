@@ -22,7 +22,11 @@ class LoginController extends Controller
         if (Auth::attempt(
             ['email' => $request->email , 'password' => $request->password])) {
 
-            return redirect()->route('Dashboard');
+            if(Auth::user()->is_admin==1){
+                return redirect()->route('Admin');
+            }else{
+                return redirect()->route('Dashboard');
+            }
         }
 
         return redirect()->back()->with('login_status','Invalid Credentials');
