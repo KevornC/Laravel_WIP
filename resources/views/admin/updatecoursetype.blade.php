@@ -27,7 +27,7 @@
                 @csrf
                 <div class="mb-4 ">
 
-                    <label class="sr-only" for="name"> Course Type </label>
+                    <label class="sr-only" for="coursetype"> Course Type </label>
                     <input type="text" value="{{$ctype->course_type}}" class="bg-white p-4 w-full rounded-md border-2 border-gray-400 @error('coursetype') border-red-700 @enderror" name="coursetype">
                     <input type="hidden" value="{{$ctype->id}}" name="id">
                     @error("coursetype")
@@ -38,7 +38,7 @@
                 </div>
 
                 <div class="mb-4">
-                    <label class="sr-only" for="name"> Description </label>
+                    <label class="sr-only" for="desc"> Description </label>
                     <input type="text" value="{{$ctype->desc}}" class="bg-white-300 p-4 w-full rounded-md border-2 border-gray-400 @error('desc') border-red-700 @enderror" name="desc">
                     @error("desc")
                     <div class="text-red-700 mt-2 text-sm">

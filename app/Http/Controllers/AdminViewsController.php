@@ -40,6 +40,12 @@ class AdminViewsController extends Controller
 
     //Add Course 
 
+    function courseindex(){
+        $courses=Course::with('TypesOfCourses')->get();
+        // dd($courses);
+        return view('admin.Courses', compact(['courses']));
+    }
+
     function addcoursesindex(){
         $coursetype=TypesOfCourse::all();
 
@@ -47,44 +53,43 @@ class AdminViewsController extends Controller
     }
 
     function addcoursesindexstore(Request $req){
+        // dd($req->coursename);
         $this->validate($req,[
-            'course_name'=>'required | string | unique:types_of_courses,course_type',
+            'course_name'=>'required | string | unique:courses,course_name',
             'courseid'=> 'required'
         ]);
-        dd($req->coursename);
+        
 
         Course::create([
             'course_name'=>$req->coursename,
             'course_type_id'=>$req->courseid
         ]);
 
-        return redirect()->back()->with('add_status',$req->coursename.'Course Added');
+        return redirect()->back()->with('add_status',$req->coursename.' Course Added');
     }
 
 //Update courses
-    function updatecourseindex(){
-        $courses=Course::all();
-
-        return view('admin.Courses', compact('courses'));
-    }
     function updatecoursesindex($id){
-        $courses=Course::find($id);
+        $course=Course::where('id',$id)->with('TypesOfCourses')->first();
+        // dd($course);
+        $types=TypesOfCourse::all();
 
-        return view('admin.updatecourses', compact('courses'));
+        return view('admin.updatecourses', compact(['course','types']));
     }
 
     function updatecoursesindexstore(Request $req){
-        $this->validate($req,[
-            'course_name'=>'required | string',
-            'courseid'=> 'required'
+        // dd($req->coursetype);
+        $req->validate([
+            'course_name'=>'required | string | unique:courses,course_name',
+            'coursetype'=> 'required'
         ]);
-
+        
         Course::find($req->id)->update([
             'course_name'=>$req->coursename,
-            'course_type_id'=>$req->courseid
+            'course_type_id'=>$req->coursetype
         ]);
 
-        return redirect()->back()->with('update_status',$req->coursename.'Course Updated');
+        return redirect()->back()->with('update_status',$req->coursename.' Course Updated');
     }
 
 

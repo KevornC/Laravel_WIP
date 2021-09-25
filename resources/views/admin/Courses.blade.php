@@ -20,6 +20,7 @@ Students
                     <td class="p-3 text-left">Course Name</td>
                     <td class="p-3 text-left">Course type</td>
                     <td class="p-3 text-left">Date Added</td>                    
+                    <td class="p-3 text-left">Actions</td>                    
                 </tr>
             </thead>
             <tbody class="bg-blue-200 lg:text-black">
@@ -27,7 +28,7 @@ Students
                 <tr>
                     <td class="p-3">{{$info->id}}</td>
                     <td class="p-3 uppercase">{{$info->course_name}}</td>
-                    <td class="p-3">{{$info->course_type_id->course_type}}</td>
+                    <td class="p-3">{{$info->TypesOfCourses->course_type}}</td>
                     <td class="p-3">{{$info->created_at}}</td>
                     <td class="p-3"><a class="hover:bg-blue-300" href="{{url('/Course/Update/'.$info->id)}}">Update</a></td>
                 </tr>

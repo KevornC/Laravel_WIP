@@ -1,39 +1,66 @@
 @extends("layouts.admin")
 
-
 @section("page_title")
-
-Students
-
+    Laravel Wip - Update Courses
 @endsection
 
 @section("content")
 
-<h1 class="text-6xl text-blue-400 text-center">Students</h1>
 
-<div class="flex justify-center items-center w-full mt-32">
-    <div class="">
-        <table class="table text-gray-400 border-separate space-y-6 text-sm z-in">
-            <thead class="bg-blue-500 text-white">
-                <tr>
-                    <td text-3xl font-extrabold text-center text-blue-600 mb-6>Student ID</td>
-                    <td class="p-3 text-left">Student Name</td>
-                    <td class="p-3 text-left">Student Telephone</td>
-                    <td class="p-3 text-left">Date Registered</td>
-                </tr>
-            </thead>
-            <tbody class="bg-blue-200 lg:text-black">
-                @foreach($students as $info)
-                <tr>
-                    <td class="p-3">{{$info->id}}</td>
-                    <td class="p-3 uppercase">{{$info->name}}</td>
-                    <td class="p-3">{{$info->tele}}</td>
-                    <td class="p-3">{{$info->created_at}}</td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+<h1 class="text-6xl text-blue-400 text-center">Update Course </h1>
+    <div class="flex justify-center">
+
+
+        <div class="w-4/12 bg-gray-200 mt-20 rounded-lg shadow-2xl">
+
+            <h1 class="text-4xl font-bold text-center">Update Course</h1>
+            <h3 class="text-md text-center mb-2">Use the form below to edit course</h3>
+
+
+        @if (session()->has('update_status'))
+                <div class=" bg-green-500 p-4 rounded-lg text-white text-center mb-6">
+                    {{session('update_status')}}
+                </div>
+            @endif
+
+            <form method="post" action="{{route('On-Update-Courses')}}">
+                @csrf
+
+                
+                <div class="mb-4">
+                    <label class="sr-only" for="coursename"> Course  Name </label>
+                    <input type="text" value="{{$course->course_name}}" class="bg-white-300 p-4 w-full rounded-md border-2 border-gray-400 @error('coursename') border-red-700 @enderror" name="coursename">
+                    @error("coursename")
+                    <div class="text-red-700 mt-2 text-sm">
+                        {{$message}}
+                    </div>
+                    @enderror
+                </div>
+
+                <div class="mb-4">
+                    <label class="sr-only" for="coursetype"> Course Type</label>
+                    <select name="coursetype"  class="bg-white p-4 w-full rounded-md border-2 border-gray-400 @error('coursetype') border-red-700 @enderror">
+                        <option>Select Course Type</option>
+                        @foreach($types as $info)
+                            <option value="{{$info->id}}">{{$info->course_type}}</option>
+                        @endforeach
+                    </select>
+                    <input type="hidden" value="{{$course->id}}" name="id">
+                    <input type="hidden" value="{{$course->course_type_id}}" name="coursetype">
+                    @error("coursetype")
+                    <div class="text-red-700 mt-2 text-sm">
+                        {{$message}}
+                    </div>
+                    @enderror
+                </div>
+
+                <div>
+                    <button type="submit" class="bg-blue-500 text-white p-4 w-full rounded-md shadow-2xl">Update</button>
+                </div>
+
+            </form>
+
+        </div>
+
     </div>
-</div>
-
 @endsection

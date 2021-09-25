@@ -14,6 +14,6 @@ class Course extends Model
     ];
 
     function TypesOfCourses(){
-        return $this->belongsTo(TypesOfCourses::class,'id);
+        return $this->belongsTo(TypesOfCourse::class,'course_type_id');
     }
 }

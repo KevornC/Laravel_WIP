@@ -72,9 +72,9 @@ Route::get("/admin/AddCourses",[AdminViewsController::class,"addcoursesindex"])-
 Route::post("/admin/AddCourses",[AdminViewsController::class,"addcoursesindexstore"])->name("On-Courses");
 
 Route::get("/Course/Update/{id?}",[AdminViewsController::class,"updatecoursesindex"])->name("UpdateCourses");
-Route::post("/admin/Courses",[AdminController::class,"updatecoursesindexstore"])->name("On-Update-Courses");
+Route::post("/admin/Courses",[AdminViewsController::class,"updatecoursesindexstore"])->name("On-Update-Courses");
 
-Route::get("/admin/Courses",[AdminViewsController::class,"updatecourseindex"])->name("Courses");
+Route::get("/admin/Courses",[AdminViewsController::class,"courseindex"])->name("Courses");
 
 
 
