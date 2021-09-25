@@ -77,6 +77,11 @@ Route::post("/admin/Courses",[AdminViewsController::class,"updatecoursesindexsto
 Route::get("/admin/Courses",[AdminViewsController::class,"courseindex"])->name("Courses");
 
 
+//Student Selection
+
+
+
+
 
 
 
