@@ -20,12 +20,11 @@ class AdminController extends Controller
             return redirect('/dashboard');
         }
 
-        $user=DB::table('users')->where('is_admin',0)->count();
-        $acceptance=DB::table('Student_Selections')->where('is_approved',1)->count();
-        $courses=DB::table('courses')->count();
-        $types=DB::table('Types_of_courses')->count();
-        // dd($courses);
-        $recents=StudentSelection::orderby('created_at','desc')->with('Courses')->get();
+        $user=User::where('is_admin',0)->count();
+        $acceptance=StudentSelection::where('is_approved',1)->count();
+        $courses=Course::count();
+        $types=TypesOfCourse::count();
+        $recents=StudentSelection::latest('created_at')->with('Courses')->get();
 
         return view('admin.index',compact(['user','acceptance','courses','types','recents']));
     }
