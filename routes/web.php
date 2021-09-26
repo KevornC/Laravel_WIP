@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AdminViewsController;
 use App\Http\Controllers\AdminSUpdateController;
+use App\Http\Controllers\AdminDeleteController;
 
 use App\Http\Controllers\Auth\ProfileController;
 use App\Http\Controllers\DashboardController;
@@ -77,13 +78,29 @@ Route::post("/admin/Courses",[AdminViewsController::class,"updatecoursesindexsto
 Route::get("/admin/Courses",[AdminViewsController::class,"courseindex"])->name("Courses");
 
 
+
 //Student Selection
 
+Route::get("/admin/StudentSelection",[AdminSUpdateController::class,"selection"])->name("selection");
+Route::get("/selection/Update/{id}",[AdminSUpdateController::class,"approve"])->name("UpdateSelection");
+
+
+
+
+//Delete
+Route::get("/Student/Delete/{id?}",[AdminDeleteController::class,"studentdelete"])->name("DeleteStudent");
+
+Route::get("/TypeOfCourse/Delete/{id?}",[AdminDeleteController::class,"typedelete"])->name("DeleteTypesOfCourses");
+
+Route::get("/Course/Delete/{id?}",[AdminDeleteController::class,"coursedelete"])->name("DeleteCourses");
 
 
 
 
 
+//Student part now
+
+Route::get('/Course/Selection',[StudentController::Class,'show'])->name('ShowCourses');
 
 
 

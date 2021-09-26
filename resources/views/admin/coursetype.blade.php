@@ -26,7 +26,8 @@ Update Course Type
                 <tr>
                     <td class="p-3 uppercase">{{$info->course_type}}</td>
                     <td class="p-3">{{$info->desc}}</td>
-                    <td class="p-3"><a class="hover:bg-blue-300" href="{{url('/CourseType/Update/'.$info->id)}}">Update</a></td>
+                    <td class="p-3"><a class="hover:bg-blue-300" href="{{url('/CourseType/Update/'.$info->id)}}">Update</a>
+                    <a class="hover:bg-red-300" href="{{url('/TypeOfCourse/Delete/'.$info->id)}}">Delete</a></td>
                 </tr>
                 @endforeach
             </tbody>

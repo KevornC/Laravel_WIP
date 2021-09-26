@@ -54,10 +54,10 @@ class AdminViewsController extends Controller
 
     function addcoursesindexstore(Request $req){
         // dd($req->coursename);
-        $this->validate($req,[
-            'course_name'=>'required | string | unique:courses,course_name',
-            'courseid'=> 'required'
-        ]);
+        // $this->validate($req,[
+        //     'course_name'=>'required | string | unique:courses,course_name',
+        //     'courseid'=> 'required'
+        // ]);
         
 
         Course::create([
@@ -79,10 +79,10 @@ class AdminViewsController extends Controller
 
     function updatecoursesindexstore(Request $req){
         // dd($req->coursetype);
-        $req->validate([
-            'course_name'=>'required | string | unique:courses,course_name',
-            'coursetype'=> 'required'
-        ]);
+        // $req->validate([
+        //     'course_name'=>'required | string | unique:courses,course_name',
+        //     'coursetype'=> 'required'
+        // ]);
         
         Course::find($req->id)->update([
             'course_name'=>$req->coursename,

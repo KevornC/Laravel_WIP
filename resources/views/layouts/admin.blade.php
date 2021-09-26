@@ -23,8 +23,9 @@
             <li class="py-2 px-2 hover:bg-blue-600 duration-300 mt-3  hover:text-white cursor-pointer"><a href="{{route('CourseType')}}" class="p-2">Course Type</a></li>  
             
             <li class="py-2 px-2 hover:bg-blue-600 duration-300 mt-3  hover:text-white cursor-pointer"><a href="{{route('AddCourses')}}" class="p-2">Add Course</a></li>
-            <li class="py-2 px-2 hover:bg-blue-600 duration-300 mt-3  hover:text-white cursor-pointer"><a href="{{route('UpdateCourses')}}" class="p-2">Update Course</a></li>
             <li class="py-2 px-2 hover:bg-blue-600 duration-300 mt-3  hover:text-white cursor-pointer"><a href="{{route('Courses')}}" class="p-2">View Courses</a></li>
+
+            <li class="py-2 px-2 hover:bg-blue-600 duration-300 mt-3  hover:text-white cursor-pointer"><a href="{{route('selection')}}" class="p-2">Student Selections</a></li>
                       
             <li class="mt-28">
                 <form action="{{route('Logout')}}" method="post">

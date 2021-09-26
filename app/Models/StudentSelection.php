@@ -16,10 +16,10 @@ class StudentSelection extends Model
     ];
 
     function Users (){
-        return $this->belongsTo(User::class,'id');
+        return $this->belongsTo(User::class,'user_id');
     }
 
     function Courses (){
-        return $this->belongsTo(Course::class,'id');
+        return $this->belongsTo(Course::class,'course_id');
     }
 }

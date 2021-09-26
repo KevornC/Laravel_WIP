@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Course;
 use App\Models\TypesOfCourse;
+use App\Models\StudentSelection;
+
 use Auth;
 
 class AdminSUpdateController extends Controller
@@ -57,6 +59,22 @@ class AdminSUpdateController extends Controller
             ]);
     
             return redirect()->back()->with('update_status',$req->coursetype." data updated");
+            }
+
+
+            //selections
+
+            function selection(){
+                $selections=StudentSelection::with('Users')->with('Courses')->get();
+                // dd($selections);
+                return view('admin\selections',compact(['selections']));
+            }
+
+            function approved($id){
+                StudentSelection::find($id)->update(['is_approved'=>1]);
+                
+                return redirect()->back()->with('update_status',"Approved");
+
             }
 
 

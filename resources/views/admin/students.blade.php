@@ -30,7 +30,8 @@ Students
                     <td class="p-3 uppercase">{{$info->name}}</td>
                     <td class="p-3">{{$info->tele}}</td>
                     <td class="p-3">{{$info->created_at}}</td>
-                    <td class="p-3"><a class="hover:bg-blue-300" href="{{url('/student/Update/'.$info->id)}}">Update</a></td>
+                    <td class="p-3"><a class="hover:bg-blue-300" href="{{url('/student/Update/'.$info->id)}}">Update</a>
+                    <a class="hover:bg-red-300" href="{{url('/Student/Delete/'.$info->id)}}">Delete</a></td>
                 </tr>
                 @endforeach
             </tbody>

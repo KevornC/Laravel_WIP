@@ -3,13 +3,13 @@
 
 @section("page_title")
 
-Students
+Courses
 
 @endsection
 
 @section("content")
 
-<h1 class="text-6xl text-blue-400 text-center">Students</h1>
+<h1 class="text-6xl text-blue-400 text-center">Courses</h1>
 
 <div class="flex justify-center items-center w-full mt-32">
     <div class="">
@@ -28,9 +28,10 @@ Students
                 <tr>
                     <td class="p-3">{{$info->id}}</td>
                     <td class="p-3 uppercase">{{$info->course_name}}</td>
-                    <td class="p-3">{{$info->TypesOfCourses->course_type}}</td>
+                    <td class="p-3 uppercase">{{$info->TypesOfCourses->course_type}}</td>
                     <td class="p-3">{{$info->created_at}}</td>
-                    <td class="p-3"><a class="hover:bg-blue-300" href="{{url('/Course/Update/'.$info->id)}}">Update</a></td>
+                    <td class="p-3"><a class="hover:bg-blue-300" href="{{url('/Course/Update/'.$info->id)}}">Update</a>
+                    <a class="hover:bg-red-300" href="{{url('/Course/Delete/'.$info->id)}}">Delete</a></td>
                 </tr>
                 @endforeach
             </tbody>

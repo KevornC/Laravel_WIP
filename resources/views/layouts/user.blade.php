@@ -12,28 +12,22 @@
 
 <nav class="p-4 text-black border bg-white w-screen flex justify-between mb-6 items-center">
     <ul class="flex items-center">
-        <li><a href="#" class="p-2">Home</a></li>
+    <li><a href="{{route('Dashboard')}}" class="p-2 hover:bg-blue-300">Dashboard</a></li>
+        <li><a href="/Course/Selection" class="p-2 hover:bg-blue-300">Course Selection</a></li>
+        <li><a href="/Course/Selection" class="p-2 hover:bg-blue-300">View Selection</a></li>
     </ul>
-
-    <ul class="flex items-center">
-
-        @auth
-            <li><a href="{{route('Profile')}}" class="p-2">{{Auth::user()->name}}</a></li>
-            <li>
+</ul>
+        <ul class="flex items-center w">
+            <li><a href="{{route('Profile')}}" class="p-2 hover:bg-blue-300">{{Auth::user()->name}}</a></li>
+            <li flex justify-between>
                 <form action="{{route('Logout')}}" method="post">
                     @csrf
                 <button class="p-2 bg-red-500 px-4 text-white rounded hover:bg-red-400 duration-300">Logout</button>
 
                 </form>
             </li>
-
-        @else
-        <li><a href="{{route("Login")}}" class="p-2">Login</a></li>
-        <li><a href="{{route('Register')}}" class="p-2">Register</a></li>
-
-        @endauth
-
-    </ul>
+        </ul>
+    <!-- </ul> -->
 </nav>
 
 @yield("content")

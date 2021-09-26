@@ -1,4 +1,4 @@
-@extends("layouts.app")
+@extends("layouts.user")
 
 @section("page_title")
     Laravel Wip - User Profile
