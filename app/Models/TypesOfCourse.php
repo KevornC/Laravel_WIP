@@ -10,7 +10,7 @@ class TypesOfCourse extends Model
     use HasFactory;
 
     protected $fillable = [
-        'course_type','desc'
+        'course_type','desc','Active'
     ];
 
     function Courses(){

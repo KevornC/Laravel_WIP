@@ -40,13 +40,18 @@ Add Courses
                 </div>
 
                 <div class="mb-4">
-                    <label class="sr-only" for="courseid"> Course ID </label>
-                    <select name="courseid" class="bg-white p-4 w-full rounded-md border-2 border-gray-400 @error('courseid') border-red-700 @enderror">
-                        <option>Select Course Type</option>
+                    <label class="sr-only" for="coursetype"> Course Type </label>
+                    <select name="coursetype" class="bg-white p-4 w-full rounded-md border-2 border-gray-400 @error('coursetype') border-red-700 @enderror">
+                        <option value="">Select Course Type</option>
                         @foreach($coursetype as $info)
                             <option value="{{$info->id}}">{{$info->course_type}}</option>
                         @endforeach
                     </select>
+                    @error("coursetype")
+                    <div class="text-red-700 mt-2 text-sm">
+                        {{$message}}
+                    </div>
+                    @enderror
                 </div>
 
                 <div>

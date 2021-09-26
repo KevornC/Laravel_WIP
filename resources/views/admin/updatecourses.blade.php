@@ -38,15 +38,31 @@
                 </div>
 
                 <div class="mb-4">
+                    <label class="sr-only" for="coursestatus"> Course Status</label>
+                    <select name="coursestatus"  class="bg-white p-4 w-full rounded-md border-2 border-gray-400 @error('coursestatus') border-red-700 @enderror">
+                        <option value="{{$course->Active}}">Old/New Value= {{$course->Active}}</option>
+                        <option value="Active">Active</option>
+                        <option value="Not Active">Not Active</option>
+                    </select>
+                    <input type="hidden" value="{{$course->id}}" name="id">
+                    <!-- <input type="hidden" value="{{$course->course_type_id}}" name="coursetype"> -->
+                    @error("coursestatus")
+                    <div class="text-red-700 mt-2 text-sm">
+                        {{$message}}
+                    </div>
+                    @enderror
+                </div>
+
+                <div class="mb-4">
                     <label class="sr-only" for="coursetype"> Course Type</label>
                     <select name="coursetype"  class="bg-white p-4 w-full rounded-md border-2 border-gray-400 @error('coursetype') border-red-700 @enderror">
-                        <option>Select Course Type</option>
+                        <option value="{{$course->course_type_id}}">Old/New Value = {{$course->TypesOfCourses->course_type}}</option>
                         @foreach($types as $info)
                             <option value="{{$info->id}}">{{$info->course_type}}</option>
                         @endforeach
                     </select>
                     <input type="hidden" value="{{$course->id}}" name="id">
-                    <input type="hidden" value="{{$course->course_type_id}}" name="coursetype">
+                    <!-- <input type="hidden" value="{{$course->course_type_id}}" name="coursetype"> -->
                     @error("coursetype")
                     <div class="text-red-700 mt-2 text-sm">
                         {{$message}}

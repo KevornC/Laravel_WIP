@@ -38,6 +38,21 @@
                 </div>
 
                 <div class="mb-4">
+                    <label class="sr-only" for="coursetypestatus"> Course Status</label>
+                    <select name="coursetypestatus"  class="bg-white p-4 w-full rounded-md border-2 border-gray-400 @error('coursetypestatus') border-red-700 @enderror">
+                        <option value="{{$ctype->Active}}">Old/New Value= {{$ctype->Active}}</option>
+                        <option value="Active">Active</option>
+                        <option value="Not Active">Not Active</option>
+                    </select>
+                    <input type="hidden" value="{{$ctype->id}}" name="id">
+                    @error("coursetypestatus")
+                    <div class="text-red-700 mt-2 text-sm">
+                        {{$message}}
+                    </div>
+                    @enderror
+                </div>
+
+                <div class="mb-4">
                     <label class="sr-only" for="desc"> Description </label>
                     <input type="text" value="{{$ctype->desc}}" class="bg-white-300 p-4 w-full rounded-md border-2 border-gray-400 @error('desc') border-red-700 @enderror" name="desc">
                     @error("desc")

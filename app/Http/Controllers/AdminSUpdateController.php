@@ -29,6 +29,7 @@ class AdminSUpdateController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'tele' => $request->tele,
+            'Active'=>$request->studentstatus
         ]);
 
         return redirect()->back()->with('update_status',$request->name." data updated");
@@ -55,7 +56,8 @@ class AdminSUpdateController extends Controller
     
             TypesOfCourse::find($req->id)->update([
                 'course_type'=>$req->coursetype,
-                'desc'=>$req->desc
+                'desc'=>$req->desc,
+                'Active'=>$req->coursetypestatus
             ]);
     
             return redirect()->back()->with('update_status',$req->coursetype." data updated");
@@ -71,9 +73,16 @@ class AdminSUpdateController extends Controller
             }
 
             function approved($id){
+                // dd($id);
                 StudentSelection::find($id)->update(['is_approved'=>1]);
                 
-                return redirect()->back()->with('update_status',"Approved");
+                return redirect()->back()->with('approved_status',"Approved");
+
+            }
+            function rejected($id){
+                StudentSelection::find($id)->update(['is_approved'=>2]);
+                // dd($id);
+                return redirect()->back()->with('rejected_status',"Rejected");
 
             }
 

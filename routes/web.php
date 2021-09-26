@@ -12,6 +12,8 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\StudentController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -82,7 +84,8 @@ Route::get("/admin/Courses",[AdminViewsController::class,"courseindex"])->name("
 //Student Selection
 
 Route::get("/admin/StudentSelection",[AdminSUpdateController::class,"selection"])->name("selection");
-Route::get("/selection/Update/{id}",[AdminSUpdateController::class,"approve"])->name("UpdateSelection");
+Route::get("/Selection/Approve/{id}",[AdminSUpdateController::class,"approved"])->name("ApproveSelection");
+Route::get("/Selection/Reject/{id}",[AdminSUpdateController::class,"rejected"])->name("DenySelection");
 
 
 
@@ -101,6 +104,9 @@ Route::get("/Course/Delete/{id?}",[AdminDeleteController::class,"coursedelete"])
 //Student part now
 
 Route::get('/Course/Selection',[StudentController::Class,'show'])->name('ShowCourses');
+Route::post('/Course/Selection',[StudentController::Class,'store'])->name('On-Select-Courses');
+
+Route::get('/Course/View/Selection',[StudentController::Class,'viewselection'])->name('ShowSelections');
 
 
 

@@ -17,21 +17,9 @@
 
     <ul class="flex items-center">
 
-        @auth
-            <li><a href="{{route('Profile')}}" class="p-2">{{Auth::user()->name}}</a></li>
-            <li>
-                <form action="{{route('Logout')}}" method="post">
-                    @csrf
-                <button class="p-2 bg-red-500 px-4 text-white rounded hover:bg-red-400 duration-300">Logout</button>
-
-                </form>
-            </li>
-
-        @else
-        <li><a href="{{route("Login")}}" class="p-2">Login</a></li>
+        <li><a href="{{route('Login')}}" class="p-2">Login</a></li>
         <li><a href="{{route('Register')}}" class="p-2">Register</a></li>
 
-        @endauth
 
     </ul>
 </nav>

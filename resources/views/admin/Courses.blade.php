@@ -20,6 +20,7 @@ Courses
                     <td class="p-3 text-left">Course Name</td>
                     <td class="p-3 text-left">Course type</td>
                     <td class="p-3 text-left">Date Added</td>                    
+                    <td class="p-3 text-left">Course Status</td>                    
                     <td class="p-3 text-left">Actions</td>                    
                 </tr>
             </thead>
@@ -30,6 +31,7 @@ Courses
                     <td class="p-3 uppercase">{{$info->course_name}}</td>
                     <td class="p-3 uppercase">{{$info->TypesOfCourses->course_type}}</td>
                     <td class="p-3">{{$info->created_at}}</td>
+                    <td class="p-3">{{$info->Active}}</td>
                     <td class="p-3"><a class="hover:bg-blue-300" href="{{url('/Course/Update/'.$info->id)}}">Update</a>
                     <a class="hover:bg-red-300" href="{{url('/Course/Delete/'.$info->id)}}">Delete</a></td>
                 </tr>

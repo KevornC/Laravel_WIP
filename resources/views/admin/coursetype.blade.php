@@ -17,7 +17,8 @@ Update Course Type
             <thead class="bg-blue-500 text-white">
                 <tr>
                     <td class="p-3 text-left">Course Type</td>
-                    <td class="p-3 text-left">Course Description</td>
+                    <td class="p-3 text-left">Course Type Description</td>
+                    <td class="p-3 text-left">Course Type Status</td>
                     <td class="p-3 text-left">Action</td>
                 </tr>
             </thead>
@@ -26,6 +27,7 @@ Update Course Type
                 <tr>
                     <td class="p-3 uppercase">{{$info->course_type}}</td>
                     <td class="p-3">{{$info->desc}}</td>
+                    <td class="p-3">{{$info->Active}}</td>
                     <td class="p-3"><a class="hover:bg-blue-300" href="{{url('/CourseType/Update/'.$info->id)}}">Update</a>
                     <a class="hover:bg-red-300" href="{{url('/TypeOfCourse/Delete/'.$info->id)}}">Delete</a></td>
                 </tr>

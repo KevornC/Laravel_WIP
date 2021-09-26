@@ -54,15 +54,15 @@ class AdminViewsController extends Controller
 
     function addcoursesindexstore(Request $req){
         // dd($req->coursename);
-        // $this->validate($req,[
-        //     'course_name'=>'required | string | unique:courses,course_name',
-        //     'courseid'=> 'required'
-        // ]);
+        $this->validate($req,[
+            'coursename'=>'required | string | unique:courses,course_name',
+            'coursetype'=> 'required'
+        ]);
         
 
         Course::create([
             'course_name'=>$req->coursename,
-            'course_type_id'=>$req->courseid
+            'course_type_id'=>$req->coursetype
         ]);
 
         return redirect()->back()->with('add_status',$req->coursename.' Course Added');
@@ -79,14 +79,15 @@ class AdminViewsController extends Controller
 
     function updatecoursesindexstore(Request $req){
         // dd($req->coursetype);
-        // $req->validate([
-        //     'course_name'=>'required | string | unique:courses,course_name',
-        //     'coursetype'=> 'required'
-        // ]);
-        
+        $req->validate([
+            'coursename'=>'required | string',
+            'coursetype'=> 'required'
+        ]);
+        // dd($req->coursetype);
         Course::find($req->id)->update([
             'course_name'=>$req->coursename,
-            'course_type_id'=>$req->coursetype
+            'course_type_id'=>$req->coursetype,
+            'Active'=>$req->coursestatus
         ]);
 
         return redirect()->back()->with('update_status',$req->coursename.' Course Updated');

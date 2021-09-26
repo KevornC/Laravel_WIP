@@ -14,7 +14,7 @@
     <ul class="flex items-center">
     <li><a href="{{route('Dashboard')}}" class="p-2 hover:bg-blue-300">Dashboard</a></li>
         <li><a href="/Course/Selection" class="p-2 hover:bg-blue-300">Course Selection</a></li>
-        <li><a href="/Course/Selection" class="p-2 hover:bg-blue-300">View Selection</a></li>
+        <li><a href="/Course/View/Selection" class="p-2 hover:bg-blue-300">View Selection</a></li>
     </ul>
 </ul>
         <ul class="flex items-center w">

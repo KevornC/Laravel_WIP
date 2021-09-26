@@ -1,4 +1,4 @@
-@extends("layouts.admin")
+@extends("layouts.user")
 
 
 @section("page_title")
@@ -13,16 +13,6 @@ Students
 
 <div class="flex justify-center items-center w-full mt-32">
     <div class="">
-    @if (session()->has('approved_status'))
-                <div class=" bg-green-500 p-4 rounded-lg text-white text-center mb-6">
-                    {{session('approved_status')}}
-                </div>
-            @endif
-            @if (session()->has('rejected_status'))
-                <div class=" bg-red-500 p-4 rounded-lg text-white text-center mb-6">
-                    {{session('rejected_status')}}
-                </div>
-            @endif
         <table class="table text-gray-400 border-separate space-y-6 text-sm z-in">
             <thead class="bg-blue-500 text-white">
                 <tr>
@@ -30,7 +20,6 @@ Students
                     <td class="p-3 text-left">Course Name</td>
                     <td class="p-3 text-left">Applied Date</td>
                     <td class="p-3 text-left">Status</td>
-                    <td class="p-3 text-left">Action</td>
                 </tr>
             </thead>
             <tbody class="bg-blue-200 lg:text-black">
@@ -46,8 +35,6 @@ Students
                     @else
                         <td class="p-3">Pending</td>
                     @endif
-                   <td> <a class="hover:bg-green-300" href="{{url('/Selection/Approve/'.$info->id)}}">Approve</a>
-                   <a class="hover:bg-red-300" href="{{url('/Selection/Reject/'.$info->id)}}">Deny</a></td>
                 </tr>
                 @endforeach
             </tbody>

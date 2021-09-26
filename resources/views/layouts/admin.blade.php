@@ -13,19 +13,19 @@
 <div class="container w-screen h-screen flex">
 
     <div class=" bg-white p-4 h-full w-2/12">
-    <h1 class="text-3xl font-extrabold text-center text-blue-600 mb-6">Admin</h1>
+    <h1 class="text-3xl font-extrabold text-center text-blue-600 mb-2">Admin</h1>
         <ul>
-            <li class="py-2 px-2 bg-yellow-400 text-white cursor-pointer mb-6 hover:bg-green-600 duration-300 mt-3" ><a href="{{route('AdminProfile')}}" class="p-2">{{Auth::user()->name}}</a></li>
-            <li class="py-3 px-2 bg-blue-600 text-white cursor-pointer" ><a href="{{route('Admin')}}" class="p-2">Dashboard</a></li>
-            <li class="py-2 px-2 hover:bg-blue-600 duration-300 mt-3  hover:text-white cursor-pointer"><a href="{{route('Students')}}" class="p-2">Students</a></li>
+            <a href="{{route('AdminProfile')}}" class="p-2"><li class=" px-2 bg-yellow-400 text-white cursor-pointer mb-6 hover:bg-green-600 duration-300 mt-3" >{{Auth::user()->name}}</li></a>
+            <a href="{{route('Admin')}}" class="p-2"><li class=" px-2 bg-blue-600 text-white cursor-pointer" >Dashboard</li></a>
+            <a href="{{route('Students')}}" class="p-2"><li class=" px-2 hover:bg-blue-600 duration-300   hover:text-white cursor-pointer">Students</li></a>
 
-            <li class="py-2 px-2 hover:bg-blue-600 duration-300 mt-3  hover:text-white cursor-pointer"><a href="{{route('AddCoursesType')}}" class="p-2">Add Course Type</a></li>
-            <li class="py-2 px-2 hover:bg-blue-600 duration-300 mt-3  hover:text-white cursor-pointer"><a href="{{route('CourseType')}}" class="p-2">Course Type</a></li>  
+            <a href="{{route('AddCoursesType')}}" class="p-2"><li class="py-1 px-2 hover:bg-blue-600 duration-300 hover:text-white cursor-pointer">Add Course Type</li></a>
+            <a href="{{route('CourseType')}}" class="p-2"><li class=" px-2 hover:bg-blue-600 duration-300 hover:text-white cursor-pointer">Course Type</li> </a> 
             
-            <li class="py-2 px-2 hover:bg-blue-600 duration-300 mt-3  hover:text-white cursor-pointer"><a href="{{route('AddCourses')}}" class="p-2">Add Course</a></li>
-            <li class="py-2 px-2 hover:bg-blue-600 duration-300 mt-3  hover:text-white cursor-pointer"><a href="{{route('Courses')}}" class="p-2">View Courses</a></li>
+            <a href="{{route('AddCourses')}}" class="p-2"><li class=" px-2 hover:bg-blue-600 duration-300  hover:text-white cursor-pointer">Add Course</li></a>
+            <a href="{{route('Courses')}}" class="p-2"><li class=" px-2 hover:bg-blue-600 duration-300  hover:text-white cursor-pointer">View Courses</li></a>
 
-            <li class="py-2 px-2 hover:bg-blue-600 duration-300 mt-3  hover:text-white cursor-pointer"><a href="{{route('selection')}}" class="p-2">Student Selections</a></li>
+            <a href="{{route('selection')}}" class="p-2"><li class=" px-2 hover:bg-blue-600 duration-300  hover:text-white cursor-pointer">Student Selections</li></a>
                       
             <li class="mt-28">
                 <form action="{{route('Logout')}}" method="post">

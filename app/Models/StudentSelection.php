@@ -12,7 +12,9 @@ class StudentSelection extends Model
     protected $fillable = [
         'user_id',
         'course_id',
-        'enroll_dt'
+        'enroll_dt',
+        'is_approved',
+        'Active'
     ];
 
     function Users (){

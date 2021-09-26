@@ -12,17 +12,27 @@ use App\Models\StudentSelection;
 class AdminDeleteController extends Controller
 {
     function studentdelete($id){
-        User::destroy($id);
+        User::find($id)->update([
+            'Active'=>'Not Active'
+        ]);
         return redirect()->back();
     }
 
     function typedelete($id){
-        TypesOfCourse::destroy($id);
+        
+        TypesOfCourse::find($id)->update([
+            'Active'=>'Not Active'
+        ]);
+        // Course::find($id)->update([
+        //     'Active'=>'NotActive'
+        // ]);
         return redirect()->back();
     }
 
     function coursedelete($id){
-        Course::destroy($id);
+        Course::find($id)->update([
+            'Active'=>'Not Active'
+        ]);
         return redirect()->back();
     }
 }

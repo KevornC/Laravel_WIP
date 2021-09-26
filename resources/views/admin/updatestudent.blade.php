@@ -57,6 +57,21 @@
                     @enderror
                 </div>
 
+                <div class="mb-4">
+                    <label class="sr-only" for="studentstatus"> Course Status</label>
+                    <select name="studentstatus"  class="bg-white p-4 w-full rounded-md border-2 border-gray-400 @error('studentstatus') border-red-700 @enderror">
+                        <option value="{{$student->Active}}">Old/New Value= {{$student->Active}}</option>
+                        <option value="Active">Active</option>
+                        <option value="Not Active">Not Active</option>
+                    </select>
+                    <input type="hidden" value="{{$student->id}}" name="id">
+                    @error("studentstatus")
+                    <div class="text-red-700 mt-2 text-sm">
+                        {{$message}}
+                    </div>
+                    @enderror
+                </div>
+
 
 
 
