@@ -26,7 +26,7 @@ class AdminDeleteController extends Controller
         Course::where('course_type_id',$id)->update([
             'Active'=>'Not Active'
         ]);
-        return redirect()->back();
+        return redirect()->back()->with('delete_status','Note: Courses in this category will become not active');
     }
 
     function coursedelete($id){

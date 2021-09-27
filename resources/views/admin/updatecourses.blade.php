@@ -37,6 +37,8 @@
                     @enderror
                 </div>
 
+                @if($course->TypesOfCourses->Active=='Active')
+
                 <div class="mb-4">
                     <label class="sr-only" for="coursestatus"> Course Status</label>
                     <select name="coursestatus"  class="bg-white p-4 w-full rounded-md border-2 border-gray-400 @error('coursestatus') border-red-700 @enderror">
@@ -45,6 +47,7 @@
                         <option value="Not Active">Not Active</option>
                     </select>
                     <input type="hidden" value="{{$course->id}}" name="id">
+                    
                     <!-- <input type="hidden" value="{{$course->course_type_id}}" name="coursetype"> -->
                     @error("coursestatus")
                     <div class="text-red-700 mt-2 text-sm">
@@ -55,10 +58,12 @@
 
                 <div class="mb-4">
                     <label class="sr-only" for="coursetype"> Course Type</label>
-                    <select name="coursetype"  class="bg-white p-4 w-full rounded-md border-2 border-gray-400 @error('coursetype') border-red-700 @enderror">
+                    <select name="coursetype"  class="bg-white p-4 w-full rounded-md border-2 border-gray-400 @error('coursetype') border-red-700 @enderror">     
                         <option value="{{$course->course_type_id}}">Old/New Value = {{$course->TypesOfCourses->course_type}}</option>
                         @foreach($types as $info)
+                        @if($info->Active=='Active')
                             <option value="{{$info->id}}">{{$info->course_type}}</option>
+                        @endif
                         @endforeach
                     </select>
                     <input type="hidden" value="{{$course->id}}" name="id">
@@ -69,6 +74,27 @@
                     </div>
                     @enderror
                 </div>
+                @else
+                <input type="hidden" value="Active" name="coursestatus">
+                <div class="mb-4">
+                    <label class="sr-only" for="coursetype"> Course Type</label>
+                    <select name="coursetype"  class="bg-white p-4 w-full rounded-md border-2 border-gray-400 @error('coursetype') border-red-700 @enderror">     
+                        <option value="{{$course->course_type_id}}">Old/New Value = {{$course->TypesOfCourses->course_type}}</option>
+                        @foreach($types as $info)
+                        @if($info->Active=='Active')
+                            <option value="{{$info->id}}">{{$info->course_type}}</option>
+                        @endif
+                        @endforeach
+                    </select>
+                    <input type="hidden" value="{{$course->id}}" name="id">
+                    <!-- <input type="hidden" value="{{$course->course_type_id}}" name="coursetype"> -->
+                    @error("coursetype")
+                    <div class="text-red-700 mt-2 text-sm">
+                        {{$message}}
+                    </div>
+                    @enderror
+                </div>
+                @endif
 
                 <div>
                     <button type="submit" class="bg-blue-500 text-white p-4 w-full rounded-md shadow-2xl">Update</button>

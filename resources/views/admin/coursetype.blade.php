@@ -9,10 +9,15 @@ Update Course Type
 
 @section("content")
 
-<h1 class="text-6xl text-blue-400 text-center">Students</h1>
+<h1 class="text-6xl text-blue-400 text-center">Course Type</h1>
 
 <div class="flex justify-center items-center w-full mt-32">
     <div class="">
+    @if (session()->has('delete_status'))
+                <div class=" bg-green-500 p-4 rounded-lg text-white text-center mb-6">
+                    {{session('delete_status')}}
+                </div>
+            @endif
         <table class="table text-gray-400 border-separate space-y-6 text-sm z-in">
             <thead class="bg-blue-500 text-white">
                 <tr>

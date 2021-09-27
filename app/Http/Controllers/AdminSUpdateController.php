@@ -59,6 +59,9 @@ class AdminSUpdateController extends Controller
                 'desc'=>$req->desc,
                 'Active'=>$req->coursetypestatus
             ]);
+            Course::where('course_type_id',$req->id)->update([
+                'Active'=>'Active'
+            ]);
     
             return redirect()->back()->with('update_status',$req->coursetype." data updated");
             }
