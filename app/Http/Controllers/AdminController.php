@@ -24,7 +24,7 @@ class AdminController extends Controller
         $acceptance=StudentSelection::where('is_approved',1)->count();
         $courses=Course::count();
         $types=TypesOfCourse::count();
-        $recents=StudentSelection::latest('created_at')->with('Courses')->get();
+        $recents=StudentSelection::orderby('id','desc')->with('Courses')->get();
 
         return view('admin.index',compact(['user','acceptance','courses','types','recents']));
     }

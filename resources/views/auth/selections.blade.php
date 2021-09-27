@@ -9,7 +9,7 @@ Students
 
 @section("content")
 
-<h1 class="text-6xl text-blue-400 text-center">Students</h1>
+<h1 class="text-6xl text-blue-400 text-center">Student Selection</h1>
 
 <div class="flex justify-center items-center w-full mt-32">
     <div class="">
