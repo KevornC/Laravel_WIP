@@ -18,6 +18,7 @@ class CreateCoursesTable extends Migration
             $table->string('course_name');
             $table->bigInteger('course_type_id')->unsigned();
             $table->foreign('course_type_id')->references('id')->on('types_of_courses');
+            $table->string('Active')->default('Active');
             $table->timestamps();
         });
     }

@@ -17,6 +17,7 @@ class CreateTypesOfCoursesTable extends Migration
             $table->id();
             $table->string('course_type');
             $table->string('desc');
+            $table->string('Active')->default('Active');
             $table->timestamps();
         });
     }
