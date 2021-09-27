@@ -23,9 +23,9 @@ class AdminDeleteController extends Controller
         TypesOfCourse::find($id)->update([
             'Active'=>'Not Active'
         ]);
-        // Course::find($id)->update([
-        //     'Active'=>'NotActive'
-        // ]);
+        Course::where('course_type_id',$id)->update([
+            'Active'=>'Not Active'
+        ]);
         return redirect()->back();
     }
 
